@@ -30,22 +30,22 @@ class Bot:
                 pass
         sleep(5)
 
-        # PIN declarations
+        #PIN declarations
         code = password
 
         pin1 = driver.find_element_by_xpath("//input[@id='ep1']")
         pin2 = driver.find_element_by_xpath("//input[@id='ep2']")
         pin3 = driver.find_element_by_xpath("//input[@id='ep3']")
         pin4 = driver.find_element_by_xpath("//input[@id='ep4']")
-        """
-        pinArray = [pin1, pin2, pin3, pin4]
-        i = 0
-        if i <= len(pinArray)+1:
-            for pin in pinArray:
         
-                pin.send_keys(code[i])
-                i = i+1
-        """
+        pinArray = [pin1, pin2, pin3, pin4]
+
+        for pin in pinArray:
+            i = len(code)
+            pin.send_keys(code[range(0, i-1)])
+            sleep(1)
+            
+        """ 
         pin1.send_keys(code[0])
         sleep(1)
         pin2.send_keys(code[1])
@@ -54,7 +54,8 @@ class Bot:
         sleep(1)
         pin4.send_keys(code[3])
         sleep(1)
-
+        """
+        
         # Temperature
         temperatureArray = [3, 6, random.randint(0, 9)]
 
@@ -69,7 +70,7 @@ class Bot:
         tBox3.send_keys(temperatureArray[2])
         sleep(1)
 
-        # SUBMISSION
+        #SUBMISSION
 
         submitButton = driver.find_element_by_xpath("//button[contains(text(),'SUBMIT')]")
         submitButton.click()
