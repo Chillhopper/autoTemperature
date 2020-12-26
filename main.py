@@ -30,7 +30,7 @@ class Bot:
                 pass
         sleep(5)
 
-        # PIN declarations
+        #PIN declarations
         code = password
 
         pin1 = driver.find_element_by_xpath("//input[@id='ep1']")
@@ -70,7 +70,7 @@ class Bot:
         tBox3.send_keys(temperatureArray[2])
         sleep(1)
 
-        # SUBMISSION
+        #SUBMISSION
 
         submitButton = driver.find_element_by_xpath("//button[contains(text(),'SUBMIT')]")
         submitButton.click()
